@@ -25,6 +25,8 @@ product             amount  price
 GÅRDKYL.FILET 280G       8  280.0
 ```
 
+![alt text](https://github.com/linuxchristian/pyNetto/blob/master/Plotting_example.png?raw=true)
+
 ## Getting started
 * Get the Netto Scan&Go app - [Android](https://play.google.com/store/apps/details?id=dk.dsg.scanandgo&hl=da_DK&gl=DK)/[iPhone](https://apps.apple.com/dk/app/netto-scan-go/id1424997991)
 * Setup the app to send reciptes to your email and go shopping
