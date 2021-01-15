@@ -166,9 +166,12 @@ if __name__ == "__main__":
 
     # Products grouped by type - sum amount and price
     unique_products = df.groupby('product').sum()
+    average_per_trip = df.groupby('time').price.sum().agg(["mean", "std"])
 
     print("You have in total (DKK) spent,")
     print(unique_products.price.sum())
+
+    print(f"\n\nOn average you spend {average_per_trip['mean']:.2f} DKK per shopping trip")
 
     print("\n\nYour most purchased product is,")
     print(unique_products.sort_values(by='amount', ascending=False).head(1))
