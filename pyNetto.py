@@ -42,8 +42,7 @@ def connect_to_imap(server, user, passwd):
     # create an IMAP4 class with SSL
     imap = imaplib.IMAP4_SSL(server)
     if user == "" or passwd == "":
-        print("Please update the script with our IMAP username and/or password")
-        exit()
+        raise RuntimeError("Please update the script with our IMAP username and/or password")
 
     # authenticate
     imap.login(user, passwd)
@@ -136,8 +135,7 @@ def process_emails(imap, folder):
     imap.logout()
 
     if len(dfs) == 0:
-        print(f"Error: could not find any emails from Netto in {EMAIL_FOLDER}")
-        exit()
+        raise RuntimeError(f"Error: could not find any emails from Netto in {EMAIL_FOLDER}")
 
     # Combine into a single dataframe
     ddf = pd.concat(dfs)
