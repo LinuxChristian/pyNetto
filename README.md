@@ -14,7 +14,7 @@ Processed 22 emails from Netto
 You have in total (DKK) spent,
 6444.75
 
-On average you spend 292.94 per shopping trip
+On average you spend 292.94 DKK per shopping trip
 
 Your most purchased product is,
 product              amount  price
