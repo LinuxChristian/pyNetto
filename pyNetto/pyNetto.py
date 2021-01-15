@@ -90,13 +90,12 @@ def process_emails(imap, folder):
 
         soup = BeautifulSoup(utf8_msg, features="lxml")
 
-        # the first argument to find tells it what tag to search for
-        # the second you can pass a dict of attr->value pairs to filter
-        # results that match the first tag
+        # Find the first HTML table in the message body
         table = soup.find("table")
 
         try:
             rows = list()
+            # Iterate all HTML rows in the table and process every row of class `items`
             for row in table.findAll("tr"):
                 if "items" in row.attrs["class"]:
                     # The row (tr) has three data elemets (td)
@@ -118,8 +117,8 @@ def process_emails(imap, folder):
                             "price": float(pant_price)
                         })
 
+                    # Remove newline charaters and make amount a number
                     rows.append({
-                        # Remove newline charaters and make amount a number
                         "time": msg_time,
                         "product": product.text.strip(),
                         "amount": int(amount.text.replace("stk", "").strip()),
